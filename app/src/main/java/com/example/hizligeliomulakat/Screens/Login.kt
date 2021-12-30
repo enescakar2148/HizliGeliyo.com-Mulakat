@@ -15,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -24,8 +23,8 @@ import com.example.hizligeliomulakat.R
 @Composable
 fun Login(
     modifier: Modifier,
-    navController: NavController? //TODO: Nullable'dan Çıkarmayı Unutma !!!
-){
+    navController: NavController
+) {
 
     var password by remember {
         mutableStateOf("")
@@ -39,108 +38,129 @@ fun Login(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        horizontalAlignment = Alignment.Start
     ) {
         Image(
-            painter = painterResource(id = R.drawable.login_logo),
-            contentDescription = "Company Logo",
-            modifier = Modifier
-                .size(120.dp)
-        )
-        Text(
-            text = "Hesabına Giriş Yap",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.W500,
-            modifier = modifier.padding(bottom = 25.dp, top = 5.dp),
-            color = colorResource(id = R.color.account_login_text)
+            painter = painterResource(id = R.drawable.ic_login_back_arrow),
+            contentDescription = "Login Back Button",
+            modifier = modifier
+                .padding(top = 50.dp, bottom = 30.dp, start = 30.dp)
         )
 
-        TextField(
-            value = mail,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-            modifier = modifier
-                .padding(horizontal = 35.dp, vertical = 10.dp)
-                .fillMaxWidth()
-                .border(
-                    BorderStroke(1.dp, Color.LightGray),
-                    shape = RoundedCornerShape(50)
-                ),
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
-            onValueChange = {
-                mail = it
-            },
-            placeholder = {
-                Text(
-                    text = "demo@hizligeliyo.com",
-                    modifier = modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center)
-            }
-        )
+        Column(
+            modifier = modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        TextField(
-            value = password,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            modifier = modifier
-                .padding(horizontal = 35.dp, vertical = 10.dp)
-                .fillMaxWidth()
-                .border(
-                    BorderStroke(1.dp, Color.LightGray),
-                    shape = RoundedCornerShape(50)
+            Image(
+                painter = painterResource(id = R.drawable.login_logo),
+                contentDescription = "Company Logo",
+                modifier = Modifier
+                    .size(120.dp)
+            )
+            Text(
+                text = "Hesabına Giriş Yap",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.W500,
+                modifier = modifier.padding(bottom = 25.dp, top = 5.dp),
+                color = colorResource(id = R.color.account_login_text)
+            )
+
+            TextField(
+                value = mail,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                modifier = modifier
+                    .padding(horizontal = 35.dp, vertical = 10.dp)
+                    .fillMaxWidth()
+                    .border(
+                        BorderStroke(1.dp, Color.LightGray),
+                        shape = RoundedCornerShape(50)
+                    ),
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color.White,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
                 ),
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
-            onValueChange = {
-                password = it
-            },
-            placeholder = {
+                textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
+                onValueChange = {
+                    mail = it
+                },
+                placeholder = {
+                    Text(
+                        text = "demo@hizligeliyo.com",
+                        modifier = modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            )
+
+            TextField(
+                value = password,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                modifier = modifier
+                    .padding(horizontal = 35.dp, vertical = 10.dp)
+                    .fillMaxWidth()
+                    .border(
+                        BorderStroke(1.dp, Color.LightGray),
+                        shape = RoundedCornerShape(50)
+                    ),
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color.White,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+                textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
+                onValueChange = {
+                    password = it
+                },
+                placeholder = {
+                    Text(
+                        text = "* * * * * *",
+                        modifier = modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            )
+            Text(
+                text = "Şifremi Unuttum",
+                color = colorResource(id = R.color.account_login_text),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 35.dp, vertical = 10.dp),
+                textAlign = TextAlign.End
+            )
+
+            Button(
+                onClick = {
+                          navController.navigate("ListProducts")
+                },
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = colorResource(id = R.color.login_button_bg)
+                ),
+                modifier = modifier
+                    .width(200.dp)
+                    .height(60.dp)
+                    .padding(top = 15.dp),
+                shape = RoundedCornerShape(50)
+            ) {
                 Text(
-                    text = "* * * * * *",
-                    modifier = modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center
+                    text = "Giriş Yap",
+                    color = Color.White
                 )
             }
-        )
-        Text(
-            text = "Şifremi Unuttum",
-            fontWeight = FontWeight.Light,
-            color = colorResource(id = R.color.account_login_text),
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(horizontal = 35.dp, vertical = 10.dp),
-            textAlign = TextAlign.End
-        )
-        
-        Button(
-            onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = colorResource(id = R.color.login_button_bg)
-            ),
-            modifier = modifier
-                .width(200.dp)
-                .height(60.dp)
-                .padding(top = 15.dp),
-            shape = RoundedCornerShape(50)
-        ) {
-            Text(
-                text = "Giriş Yap",
-                color = Color.White
-            )
+
+            Row(
+                modifier = Modifier.padding(top = 12.dp)
+            ) {
+                Text(
+                    text = "Hesabın Yok Mu? ",
+                    color = colorResource(id = R.color.account_login_text)
+                )
+                Text(
+                    text = "Kaydol",
+                    color = colorResource(id = R.color.login_button_bg)
+                )
+            }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginPreview(){
-    Login(modifier = Modifier, navController = null)
 }

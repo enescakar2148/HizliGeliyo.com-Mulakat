@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.hizligeliomulakat.Screens.ListProducts
 import com.example.hizligeliomulakat.Screens.Login
 import com.example.hizligeliomulakat.ui.theme.HizliGelioMulakatTheme
 
@@ -27,18 +28,15 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(navController = navController, startDestination = "Login") {
                         composable("Login"){
+                            // TODO: Sayfanın En Altındaki Renkli Çizgi Bölümünü Yapmayı Unutma!!
                             Login(modifier = Modifier, navController = navController)
+                        }
+                        composable("ListProducts"){
+                            ListProducts(modifier = Modifier, navController = navController)
                         }
                     }
                 }
             }
         }
     }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Login(modifier = Modifier, navController = null)
 }
