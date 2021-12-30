@@ -76,7 +76,10 @@ fun Login(
                 mail = it
             },
             placeholder = {
-                Text(text = "demo@hizligeliyo.com")
+                Text(
+                    text = "demo@hizligeliyo.com",
+                    modifier = modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center)
             }
         )
 
@@ -100,7 +103,11 @@ fun Login(
                 password = it
             },
             placeholder = {
-                Text(text = "********")
+                Text(
+                    text = "* * * * * *",
+                    modifier = modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center
+                )
             }
         )
         Text(
