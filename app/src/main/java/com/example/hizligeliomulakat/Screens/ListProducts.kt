@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -25,6 +26,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.hizligeliomulakat.Model.Product
 import com.example.hizligeliomulakat.R
+import com.example.hizligeliomulakat.ViewModel.ProductListViewModel
 
 @ExperimentalFoundationApi
 @Composable
@@ -36,6 +38,9 @@ fun ListProducts(
     navController: NavController,
     modifier: Modifier
 ) {
+    val viewModel = ProductListViewModel()
+    val productList = viewModel.loadDatFromAPI(null)
+
     var searchBarText by remember {
         mutableStateOf("")
     }
@@ -178,72 +183,7 @@ fun ListProducts(
 
         ListProduct(
             modifier = modifier,
-            products = listOf<Product>(
-                Product(
-                    1,
-                    "Product 1",
-                    856.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    2,
-                    "Product 2",
-                    86.5,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    3,
-                    "Product 3",
-                    8456.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    4,
-                    "Product 4",
-                    1023.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    4,
-                    "Product 4",
-                    1023.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    4,
-                    "Product 4",
-                    1023.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    4,
-                    "Product 4",
-                    1023.25,
-                    "Description Section",
-                    "Category",
-                    null
-                ),
-                Product(
-                    4,
-                    "Product 4",
-                    1023.25,
-                    "Description Section",
-                    "Category",
-                    null
-                )
-            )
+            products = productList
         )
     }
 }
@@ -273,24 +213,25 @@ fun ListProduct(
                         painter = painterResource(id = R.drawable.dummy_product),
                         contentDescription = "Product Image",
                         modifier = modifier
-                            .width(150.dp)
+                            .height(150.dp)
+                            .fillMaxWidth(),
+                        contentScale = ContentScale.Crop
                     )
                     Text(
                         text = products[it].title,
                         modifier = modifier
-                            .padding(top = 4.dp),
+                            .padding(top = 8.dp),
                         color = Color.Black,
-                        fontWeight = FontWeight.Bold,
                         fontSize = 16.sp
                     )
                     Text(
                         text = products[it].price.toString() + " TL",
                         color = colorResource(id = R.color.login_button_bg),
                         modifier = modifier
-                            .padding(top = 2.dp),
-                        fontWeight = FontWeight.Light,
+                            .padding(top = 4.dp),
                         fontSize = 14.sp
                     )
+                    Spacer(modifier = modifier.height(30.dp))
                 }
             }
         }
