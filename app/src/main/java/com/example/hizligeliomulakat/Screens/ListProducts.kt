@@ -1,9 +1,10 @@
 package com.example.hizligeliomulakat.Screens
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -15,10 +16,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.hizligeliomulakat.Model.Product
 import com.example.hizligeliomulakat.R
 
+@ExperimentalFoundationApi
 @Composable
 fun ListProducts(
     navController: NavController,
@@ -125,7 +130,7 @@ fun ListProducts(
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically ,
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = modifier
                     .height(IntrinsicSize.Min)
                     .padding(top = 10.dp, bottom = 10.dp),
@@ -160,6 +165,125 @@ fun ListProducts(
                         modifier = modifier.padding(end = 8.dp)
                     )
                     Text(text = "Filtre")
+                }
+            }
+        }
+
+        ListProduct(
+            modifier = modifier,
+            products = listOf<Product>(
+                Product(
+                    1,
+                    "Product 1",
+                    856.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    2,
+                    "Product 2",
+                    86.5,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    3,
+                    "Product 3",
+                    8456.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    4,
+                    "Product 4",
+                    1023.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    4,
+                    "Product 4",
+                    1023.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    4,
+                    "Product 4",
+                    1023.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    4,
+                    "Product 4",
+                    1023.25,
+                    "Description Section",
+                    "Category",
+                    null
+                ),
+                Product(
+                    4,
+                    "Product 4",
+                    1023.25,
+                    "Description Section",
+                    "Category",
+                    null
+                )
+            )
+        )
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun ListProduct(
+    modifier: Modifier,
+    products: List<Product>? //TODO: Non-Nullable Yap!!!
+) {
+    LazyVerticalGrid(
+        cells = GridCells.Fixed(2),
+        modifier = modifier.padding(top = 20.dp)
+    ) {
+        items(products!!.size) {
+            Card(
+                elevation = 2.dp,
+
+                modifier = modifier
+                    .padding(5.dp)
+            ) {
+                Column(
+                    modifier = modifier
+                        .padding(10.dp)
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.dummy_product),
+                        contentDescription = "Product Image",
+                        modifier = modifier
+                            .width(150.dp)
+                    )
+                    Text(
+                        text = products[it].title,
+                        modifier = modifier
+                            .padding(top = 4.dp),
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp
+                    )
+                    Text(
+                        text = products[it].price.toString() + " TL",
+                        color = colorResource(id = R.color.login_button_bg),
+                        modifier = modifier
+                            .padding(top = 2.dp),
+                        fontWeight = FontWeight.Light,
+                        fontSize = 14.sp
+                    )
                 }
             }
         }

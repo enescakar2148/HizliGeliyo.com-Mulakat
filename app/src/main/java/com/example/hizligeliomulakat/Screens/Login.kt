@@ -166,9 +166,10 @@ fun Login(
                 )
             }
         }
+
         Row(
             modifier = modifier
-                .fillMaxWidth(),
+                .fillMaxWidth().padding(top = 150.dp),
         ) {
 
             val configuration = LocalConfiguration.current
