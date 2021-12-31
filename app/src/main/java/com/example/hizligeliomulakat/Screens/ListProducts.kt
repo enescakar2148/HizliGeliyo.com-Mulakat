@@ -4,7 +4,7 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import com.example.hizligeliomulakat.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -20,12 +20,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.hizligeliomulakat.Model.Product
 import com.example.hizligeliomulakat.R
 
 @ExperimentalFoundationApi
 @Composable
 fun ListProducts(
+    /*
+    TODO: Burada navController ile gereken yere gidecek.
+      Argüman alacak ve geri döndüğünde o argümana göre call yapacak
+     */
     navController: NavController,
     modifier: Modifier
 ) {

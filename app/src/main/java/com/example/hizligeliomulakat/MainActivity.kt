@@ -13,8 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.hizligeliomulakat.Screens.ListProducts
-import com.example.hizligeliomulakat.Screens.Login
+import com.example.hizligeliomulakat.Screens.*
 import com.example.hizligeliomulakat.ui.theme.HizliGelioMulakatTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,8 +31,8 @@ class MainActivity : ComponentActivity() {
                         composable("Login"){
                             Login(modifier = Modifier, navController = navController)
                         }
-                        composable("ListProducts"){
-                            ListProducts(modifier = Modifier, navController = navController)
+                        composable("ContainerScreen"){
+                            ContainerScreen(modifier = Modifier)
                         }
                     }
                 }

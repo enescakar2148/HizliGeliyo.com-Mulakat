@@ -136,7 +136,7 @@ fun Login(
 
             Button(
                 onClick = {
-                    navController.navigate("ListProducts")
+                    navController.navigate("ContainerScreen")
                 },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = colorResource(id = R.color.login_button_bg)
@@ -169,7 +169,8 @@ fun Login(
 
         Row(
             modifier = modifier
-                .fillMaxWidth().padding(top = 150.dp),
+                .fillMaxWidth()
+                .padding(top = 150.dp),
         ) {
 
             val configuration = LocalConfiguration.current
