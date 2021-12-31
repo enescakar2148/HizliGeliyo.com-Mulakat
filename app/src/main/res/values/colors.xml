@@ -9,5 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="account_login_text">#52565C</color>
     <color name="login_button_bg">#2D9CDB</color>
+    <color name="line_green">#27AE60</color>
+    <color name="line_blue">#2F80ED</color>
+    <color name="line_orange">#F2994A</color>
+    <color name="line_red">#EB5757</color>
+    <color name="line_purple">#BB6BD9</color>
+    <color name="line_light_blue">#56CCF2</color>
 
 </resources>

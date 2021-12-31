@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(navController = navController, startDestination = "Login") {
                         composable("Login"){
-                            // TODO: Sayfanın En Altındaki Renkli Çizgi Bölümünü Yapmayı Unutma!!
                             Login(modifier = Modifier, navController = navController)
                         }
                         composable("ListProducts"){

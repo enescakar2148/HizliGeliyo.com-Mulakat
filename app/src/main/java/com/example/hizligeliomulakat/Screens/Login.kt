@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,15 +37,16 @@ fun Login(
 
     Column(
         modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.Start
+            .fillMaxWidth()
+            .fillMaxHeight(),
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_login_back_arrow),
             contentDescription = "Login Back Button",
             modifier = modifier
-                .padding(top = 50.dp, bottom = 30.dp, start = 30.dp)
+                .padding(top = 50.dp, start = 30.dp)
         )
 
         Column(
@@ -132,7 +134,7 @@ fun Login(
 
             Button(
                 onClick = {
-                          navController.navigate("ListProducts")
+                    navController.navigate("ListProducts")
                 },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = colorResource(id = R.color.login_button_bg)
@@ -161,6 +163,52 @@ fun Login(
                     color = colorResource(id = R.color.login_button_bg)
                 )
             }
+        }
+        Row(
+            modifier = modifier
+                .fillMaxWidth(),
+        ) {
+
+            val configuration = LocalConfiguration.current
+
+            val screenWidth = configuration.screenWidthDp.dp
+
+            Divider(
+                color = colorResource(id = R.color.line_green),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_blue),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_orange),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_red),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_purple),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_light_blue),
+                thickness = 10.dp,
+                modifier = modifier
+                    .width(screenWidth / 6)
+            )
         }
     }
 }
