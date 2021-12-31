@@ -83,6 +83,7 @@ fun Login(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
                 ),
+                singleLine = true,
                 textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
                 onValueChange = {
                     mail = it
@@ -111,6 +112,7 @@ fun Login(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
                 ),
+                singleLine = true,
                 textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
                 onValueChange = {
                     password = it

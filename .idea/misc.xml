@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/e52ne/AndroidStudioProjects/HizliGelioMulakat/app/src/main/res/drawable-anydpi/ic_filter.xml" value="0.25277777777777777" />
         <entry key="..\:/Users/e52ne/AndroidStudioProjects/HizliGelioMulakat/app/src/main/res/drawable-anydpi/ic_login_back_arrow.xml" value="0.25462962962962965" />
+        <entry key="..\:/Users/e52ne/AndroidStudioProjects/HizliGelioMulakat/app/src/main/res/drawable-anydpi/ic_sort.xml" value="0.25277777777777777" />
       </map>
     </option>
   </component>
